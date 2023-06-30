@@ -20,11 +20,13 @@ mongoose.connect(config.mongoURI)
 .then(() => console.log('MongoDB connected..'))
 .catch(err => console.log(err))
 
+
 app.get('/' , (req, res) => res.send("Hello World!"))
 
 app.get('/api/hello', (req, res) => {
-    res.send('안녕하세요~')
+    res.send('안녕~')
 })
+
 
 app.post('/api/users/register', async (req, res) =>{
 

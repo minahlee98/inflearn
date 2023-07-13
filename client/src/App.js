@@ -8,6 +8,7 @@ import {
 import LandingPage from "./components/views/LandingPage/LandingPage";
 import LoginPage from "./components/views/LoginPage/LoginPage";
 import RegisterPage from "./components/views/RegisterPage/RegisterPage";
+import Auth from './hoc/auth'
 
 
 function App() {
@@ -17,11 +18,9 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
         <Routes>
-          <Route exact path="/" Component={LandingPage}/>
-           
-          <Route exact path="/login" Component={LoginPage}/>
-          
-          <Route exact path="/register" Component={RegisterPage}/>
+          <Route exact path="/" Component={Auth(LandingPage, null)}/>
+          <Route exact path="/login" Component={Auth(LoginPage, false)}/>          
+          <Route exact path="/register" Component={Auth(RegisterPage, false)}/>
           
         </Routes>
       </div>
